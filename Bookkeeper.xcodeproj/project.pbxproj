@@ -7,18 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		604EE8F32969678E00FD1E1F /* BanksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE8F22969678E00FD1E1F /* BanksViewModel.swift */; };
+		604EE8F5296968B000FD1E1F /* BankDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE8F4296968B000FD1E1F /* BankDetailView.swift */; };
+		604EE8F7296968D300FD1E1F /* BankDetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE8F6296968D300FD1E1F /* BankDetailEditView.swift */; };
+		604EE8F9296969EC00FD1E1F /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE8F8296969EC00FD1E1F /* TransactionDetailView.swift */; };
+		604EE8FB29696A0900FD1E1F /* TransactionDetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE8FA29696A0900FD1E1F /* TransactionDetailEditView.swift */; };
+		604EE8FD29696A4C00FD1E1F /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE8FC29696A4C00FD1E1F /* TransactionsViewModel.swift */; };
+		604EE900296BC6C400FD1E1F /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE8FF296BC6C400FD1E1F /* Bank.swift */; };
+		604EE902296BC6EC00FD1E1F /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE901296BC6EC00FD1E1F /* CreditCard.swift */; };
+		604EE904296BC6F500FD1E1F /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE903296BC6F500FD1E1F /* Transaction.swift */; };
 		60C1B3E829693E28007C4D14 /* BookkeeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3E729693E28007C4D14 /* BookkeeperApp.swift */; };
-		60C1B3EA29693E28007C4D14 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3E929693E28007C4D14 /* ContentView.swift */; };
+		60C1B3EA29693E28007C4D14 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3E929693E28007C4D14 /* RootView.swift */; };
 		60C1B3EC29693E29007C4D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60C1B3EB29693E29007C4D14 /* Assets.xcassets */; };
-		60C1B3EF29693E29007C4D14 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60C1B3EE29693E29007C4D14 /* Preview Assets.xcassets */; };
+		60C1B3F729695555007C4D14 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3F629695555007C4D14 /* CalendarView.swift */; };
+		60C1B3FB29695595007C4D14 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3FA29695595007C4D14 /* TransactionsView.swift */; };
+		60C1B3FF29695605007C4D14 /* GraphsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3FE29695605007C4D14 /* GraphsView.swift */; };
+		60C1B40229695624007C4D14 /* BanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B40129695624007C4D14 /* BanksView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		604EE8F22969678E00FD1E1F /* BanksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksViewModel.swift; sourceTree = "<group>"; };
+		604EE8F4296968B000FD1E1F /* BankDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDetailView.swift; sourceTree = "<group>"; };
+		604EE8F6296968D300FD1E1F /* BankDetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDetailEditView.swift; sourceTree = "<group>"; };
+		604EE8F8296969EC00FD1E1F /* TransactionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailView.swift; sourceTree = "<group>"; };
+		604EE8FA29696A0900FD1E1F /* TransactionDetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailEditView.swift; sourceTree = "<group>"; };
+		604EE8FC29696A4C00FD1E1F /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
+		604EE8FF296BC6C400FD1E1F /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		604EE901296BC6EC00FD1E1F /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
+		604EE903296BC6F500FD1E1F /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		60C1B3E429693E28007C4D14 /* Bookkeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookkeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C1B3E729693E28007C4D14 /* BookkeeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookkeeperApp.swift; sourceTree = "<group>"; };
-		60C1B3E929693E28007C4D14 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		60C1B3E929693E28007C4D14 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		60C1B3EB29693E29007C4D14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		60C1B3EE29693E29007C4D14 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		60C1B3F629695555007C4D14 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		60C1B3FA29695595007C4D14 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
+		60C1B3FE29695605007C4D14 /* GraphsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphsView.swift; sourceTree = "<group>"; };
+		60C1B40129695624007C4D14 /* BanksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +56,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		604EE8F0296966B900FD1E1F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				604EE8FC29696A4C00FD1E1F /* TransactionsViewModel.swift */,
+				604EE8F22969678E00FD1E1F /* BanksViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		604EE8F1296966F300FD1E1F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		604EE8FE296BC6A200FD1E1F /* structs */ = {
+			isa = PBXGroup;
+			children = (
+				604EE8FF296BC6C400FD1E1F /* Bank.swift */,
+				604EE901296BC6EC00FD1E1F /* CreditCard.swift */,
+				604EE903296BC6F500FD1E1F /* Transaction.swift */,
+			);
+			path = structs;
+			sourceTree = "<group>";
+		};
 		60C1B3DB29693E28007C4D14 = {
 			isa = PBXGroup;
 			children = (
@@ -52,19 +102,53 @@
 			isa = PBXGroup;
 			children = (
 				60C1B3E729693E28007C4D14 /* BookkeeperApp.swift */,
-				60C1B3E929693E28007C4D14 /* ContentView.swift */,
+				60C1B3E929693E28007C4D14 /* RootView.swift */,
+				60C1B3F529695544007C4D14 /* Calendar */,
+				60C1B3F929695586007C4D14 /* Transactions */,
+				60C1B3FD296955FB007C4D14 /* Graphs */,
+				60C1B40029695618007C4D14 /* Banks */,
+				604EE8F0296966B900FD1E1F /* ViewModels */,
+				604EE8F1296966F300FD1E1F /* Models */,
+				604EE8FE296BC6A200FD1E1F /* structs */,
 				60C1B3EB29693E29007C4D14 /* Assets.xcassets */,
-				60C1B3ED29693E29007C4D14 /* Preview Content */,
 			);
 			path = Bookkeeper;
 			sourceTree = "<group>";
 		};
-		60C1B3ED29693E29007C4D14 /* Preview Content */ = {
+		60C1B3F529695544007C4D14 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				60C1B3EE29693E29007C4D14 /* Preview Assets.xcassets */,
+				60C1B3F629695555007C4D14 /* CalendarView.swift */,
 			);
-			path = "Preview Content";
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		60C1B3F929695586007C4D14 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				60C1B3FA29695595007C4D14 /* TransactionsView.swift */,
+				604EE8F8296969EC00FD1E1F /* TransactionDetailView.swift */,
+				604EE8FA29696A0900FD1E1F /* TransactionDetailEditView.swift */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		60C1B3FD296955FB007C4D14 /* Graphs */ = {
+			isa = PBXGroup;
+			children = (
+				60C1B3FE29695605007C4D14 /* GraphsView.swift */,
+			);
+			path = Graphs;
+			sourceTree = "<group>";
+		};
+		60C1B40029695618007C4D14 /* Banks */ = {
+			isa = PBXGroup;
+			children = (
+				60C1B40129695624007C4D14 /* BanksView.swift */,
+				604EE8F4296968B000FD1E1F /* BankDetailView.swift */,
+				604EE8F6296968D300FD1E1F /* BankDetailEditView.swift */,
+			);
+			path = Banks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,7 +209,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60C1B3EF29693E29007C4D14 /* Preview Assets.xcassets in Resources */,
 				60C1B3EC29693E29007C4D14 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,8 +220,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60C1B3EA29693E28007C4D14 /* ContentView.swift in Sources */,
+				604EE8F7296968D300FD1E1F /* BankDetailEditView.swift in Sources */,
+				60C1B3EA29693E28007C4D14 /* RootView.swift in Sources */,
+				604EE902296BC6EC00FD1E1F /* CreditCard.swift in Sources */,
+				604EE8F5296968B000FD1E1F /* BankDetailView.swift in Sources */,
+				60C1B3FB29695595007C4D14 /* TransactionsView.swift in Sources */,
+				604EE8FB29696A0900FD1E1F /* TransactionDetailEditView.swift in Sources */,
+				60C1B40229695624007C4D14 /* BanksView.swift in Sources */,
+				60C1B3FF29695605007C4D14 /* GraphsView.swift in Sources */,
+				604EE8FD29696A4C00FD1E1F /* TransactionsViewModel.swift in Sources */,
+				604EE8F9296969EC00FD1E1F /* TransactionDetailView.swift in Sources */,
 				60C1B3E829693E28007C4D14 /* BookkeeperApp.swift in Sources */,
+				60C1B3F729695555007C4D14 /* CalendarView.swift in Sources */,
+				604EE900296BC6C400FD1E1F /* Bank.swift in Sources */,
+				604EE8F32969678E00FD1E1F /* BanksViewModel.swift in Sources */,
+				604EE904296BC6F500FD1E1F /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +362,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Bookkeeper/Preview Content\"";
 				DEVELOPMENT_TEAM = AU55D7J68G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -295,7 +390,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Bookkeeper/Preview Content\"";
 				DEVELOPMENT_TEAM = AU55D7J68G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
