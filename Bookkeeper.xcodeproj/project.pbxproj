@@ -7,42 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		604EE8F32969678E00FD1E1F /* BanksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE8F22969678E00FD1E1F /* BanksViewModel.swift */; };
+		604EE8F32969678E00FD1E1F /* BankDetailEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE8F22969678E00FD1E1F /* BankDetailEditViewModel.swift */; };
 		604EE8F5296968B000FD1E1F /* BankDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE8F4296968B000FD1E1F /* BankDetailView.swift */; };
 		604EE8F7296968D300FD1E1F /* BankDetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE8F6296968D300FD1E1F /* BankDetailEditView.swift */; };
 		604EE8F9296969EC00FD1E1F /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE8F8296969EC00FD1E1F /* TransactionDetailView.swift */; };
 		604EE8FB29696A0900FD1E1F /* TransactionDetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE8FA29696A0900FD1E1F /* TransactionDetailEditView.swift */; };
-		604EE8FD29696A4C00FD1E1F /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE8FC29696A4C00FD1E1F /* TransactionsViewModel.swift */; };
 		604EE900296BC6C400FD1E1F /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE8FF296BC6C400FD1E1F /* Bank.swift */; };
 		604EE902296BC6EC00FD1E1F /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE901296BC6EC00FD1E1F /* CreditCard.swift */; };
 		604EE904296BC6F500FD1E1F /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE903296BC6F500FD1E1F /* Transaction.swift */; };
+		604EE906296BCBAD00FD1E1F /* BankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE905296BCBAD00FD1E1F /* BankModel.swift */; };
+		604EE908296BD6D100FD1E1F /* CreditCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE907296BD6D100FD1E1F /* CreditCardModel.swift */; };
+		604EE90A296BD76C00FD1E1F /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE909296BD76C00FD1E1F /* TransactionModel.swift */; };
+		604EE90C296D681D00FD1E1F /* BanksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE90B296D681D00FD1E1F /* BanksViewModel.swift */; };
 		60C1B3E829693E28007C4D14 /* BookkeeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3E729693E28007C4D14 /* BookkeeperApp.swift */; };
 		60C1B3EA29693E28007C4D14 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3E929693E28007C4D14 /* RootView.swift */; };
-		60C1B3EC29693E29007C4D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60C1B3EB29693E29007C4D14 /* Assets.xcassets */; };
 		60C1B3F729695555007C4D14 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3F629695555007C4D14 /* CalendarView.swift */; };
 		60C1B3FB29695595007C4D14 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3FA29695595007C4D14 /* TransactionsView.swift */; };
 		60C1B3FF29695605007C4D14 /* GraphsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3FE29695605007C4D14 /* GraphsView.swift */; };
 		60C1B40229695624007C4D14 /* BanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B40129695624007C4D14 /* BanksView.swift */; };
+		DCC750FD05E14C58C3F08CFA /* Pods_Bookkeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CBA5A7BCA0F72DFCD390E1 /* Pods_Bookkeeper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		604EE8F22969678E00FD1E1F /* BanksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksViewModel.swift; sourceTree = "<group>"; };
+		604EE8F22969678E00FD1E1F /* BankDetailEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDetailEditViewModel.swift; sourceTree = "<group>"; };
 		604EE8F4296968B000FD1E1F /* BankDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDetailView.swift; sourceTree = "<group>"; };
 		604EE8F6296968D300FD1E1F /* BankDetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDetailEditView.swift; sourceTree = "<group>"; };
 		604EE8F8296969EC00FD1E1F /* TransactionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailView.swift; sourceTree = "<group>"; };
 		604EE8FA29696A0900FD1E1F /* TransactionDetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailEditView.swift; sourceTree = "<group>"; };
-		604EE8FC29696A4C00FD1E1F /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
 		604EE8FF296BC6C400FD1E1F /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		604EE901296BC6EC00FD1E1F /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		604EE903296BC6F500FD1E1F /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		604EE905296BCBAD00FD1E1F /* BankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankModel.swift; sourceTree = "<group>"; };
+		604EE907296BD6D100FD1E1F /* CreditCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardModel.swift; sourceTree = "<group>"; };
+		604EE909296BD76C00FD1E1F /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
+		604EE90B296D681D00FD1E1F /* BanksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksViewModel.swift; sourceTree = "<group>"; };
 		60C1B3E429693E28007C4D14 /* Bookkeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookkeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C1B3E729693E28007C4D14 /* BookkeeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookkeeperApp.swift; sourceTree = "<group>"; };
 		60C1B3E929693E28007C4D14 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		60C1B3EB29693E29007C4D14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60C1B3F629695555007C4D14 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		60C1B3FA29695595007C4D14 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
 		60C1B3FE29695605007C4D14 /* GraphsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphsView.swift; sourceTree = "<group>"; };
 		60C1B40129695624007C4D14 /* BanksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksView.swift; sourceTree = "<group>"; };
+		60CBA5A7BCA0F72DFCD390E1 /* Pods_Bookkeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookkeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A55818846E1F9B4106400066 /* Pods-Bookkeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookkeeper.release.xcconfig"; path = "Target Support Files/Pods-Bookkeeper/Pods-Bookkeeper.release.xcconfig"; sourceTree = "<group>"; };
+		AE7A19328A2059CB997494EA /* Pods-Bookkeeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookkeeper.debug.xcconfig"; path = "Target Support Files/Pods-Bookkeeper/Pods-Bookkeeper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,17 +58,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCC750FD05E14C58C3F08CFA /* Pods_Bookkeeper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F34F1CEA19A9BEE3E27F580 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				60CBA5A7BCA0F72DFCD390E1 /* Pods_Bookkeeper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		604EE8F0296966B900FD1E1F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				604EE8FC29696A4C00FD1E1F /* TransactionsViewModel.swift */,
-				604EE8F22969678E00FD1E1F /* BanksViewModel.swift */,
+				604EE90B296D681D00FD1E1F /* BanksViewModel.swift */,
+				604EE8F22969678E00FD1E1F /* BankDetailEditViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -68,18 +85,21 @@
 		604EE8F1296966F300FD1E1F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				604EE905296BCBAD00FD1E1F /* BankModel.swift */,
+				604EE907296BD6D100FD1E1F /* CreditCardModel.swift */,
+				604EE909296BD76C00FD1E1F /* TransactionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		604EE8FE296BC6A200FD1E1F /* structs */ = {
+		604EE8FE296BC6A200FD1E1F /* Structs */ = {
 			isa = PBXGroup;
 			children = (
 				604EE8FF296BC6C400FD1E1F /* Bank.swift */,
 				604EE901296BC6EC00FD1E1F /* CreditCard.swift */,
 				604EE903296BC6F500FD1E1F /* Transaction.swift */,
 			);
-			path = structs;
+			path = Structs;
 			sourceTree = "<group>";
 		};
 		60C1B3DB29693E28007C4D14 = {
@@ -87,6 +107,8 @@
 			children = (
 				60C1B3E629693E28007C4D14 /* Bookkeeper */,
 				60C1B3E529693E28007C4D14 /* Products */,
+				C52309F02DB58C8581B869F3 /* Pods */,
+				4F34F1CEA19A9BEE3E27F580 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,9 +130,8 @@
 				60C1B3FD296955FB007C4D14 /* Graphs */,
 				60C1B40029695618007C4D14 /* Banks */,
 				604EE8F0296966B900FD1E1F /* ViewModels */,
+				604EE8FE296BC6A200FD1E1F /* Structs */,
 				604EE8F1296966F300FD1E1F /* Models */,
-				604EE8FE296BC6A200FD1E1F /* structs */,
-				60C1B3EB29693E29007C4D14 /* Assets.xcassets */,
 			);
 			path = Bookkeeper;
 			sourceTree = "<group>";
@@ -151,6 +172,15 @@
 			path = Banks;
 			sourceTree = "<group>";
 		};
+		C52309F02DB58C8581B869F3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE7A19328A2059CB997494EA /* Pods-Bookkeeper.debug.xcconfig */,
+				A55818846E1F9B4106400066 /* Pods-Bookkeeper.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,9 +188,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60C1B3F229693E29007C4D14 /* Build configuration list for PBXNativeTarget "Bookkeeper" */;
 			buildPhases = (
+				2336ECA8CDFC0B0A16FE51D4 /* [CP] Check Pods Manifest.lock */,
 				60C1B3E029693E28007C4D14 /* Sources */,
 				60C1B3E129693E28007C4D14 /* Frameworks */,
 				60C1B3E229693E28007C4D14 /* Resources */,
+				33FAAE5A45682B7ABE7E7A51 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -209,31 +241,75 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60C1B3EC29693E29007C4D14 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2336ECA8CDFC0B0A16FE51D4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bookkeeper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		33FAAE5A45682B7ABE7E7A51 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bookkeeper/Pods-Bookkeeper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bookkeeper/Pods-Bookkeeper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bookkeeper/Pods-Bookkeeper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		60C1B3E029693E28007C4D14 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				604EE90A296BD76C00FD1E1F /* TransactionModel.swift in Sources */,
 				604EE8F7296968D300FD1E1F /* BankDetailEditView.swift in Sources */,
 				60C1B3EA29693E28007C4D14 /* RootView.swift in Sources */,
 				604EE902296BC6EC00FD1E1F /* CreditCard.swift in Sources */,
 				604EE8F5296968B000FD1E1F /* BankDetailView.swift in Sources */,
 				60C1B3FB29695595007C4D14 /* TransactionsView.swift in Sources */,
+				604EE90C296D681D00FD1E1F /* BanksViewModel.swift in Sources */,
 				604EE8FB29696A0900FD1E1F /* TransactionDetailEditView.swift in Sources */,
 				60C1B40229695624007C4D14 /* BanksView.swift in Sources */,
+				604EE906296BCBAD00FD1E1F /* BankModel.swift in Sources */,
 				60C1B3FF29695605007C4D14 /* GraphsView.swift in Sources */,
-				604EE8FD29696A4C00FD1E1F /* TransactionsViewModel.swift in Sources */,
 				604EE8F9296969EC00FD1E1F /* TransactionDetailView.swift in Sources */,
 				60C1B3E829693E28007C4D14 /* BookkeeperApp.swift in Sources */,
 				60C1B3F729695555007C4D14 /* CalendarView.swift in Sources */,
 				604EE900296BC6C400FD1E1F /* Bank.swift in Sources */,
-				604EE8F32969678E00FD1E1F /* BanksViewModel.swift in Sources */,
+				604EE908296BD6D100FD1E1F /* CreditCardModel.swift in Sources */,
+				604EE8F32969678E00FD1E1F /* BankDetailEditViewModel.swift in Sources */,
 				604EE904296BC6F500FD1E1F /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +433,7 @@
 		};
 		60C1B3F329693E29007C4D14 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE7A19328A2059CB997494EA /* Pods-Bookkeeper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -385,6 +462,7 @@
 		};
 		60C1B3F429693E29007C4D14 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A55818846E1F9B4106400066 /* Pods-Bookkeeper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

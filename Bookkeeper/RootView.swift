@@ -18,36 +18,36 @@ struct RootView: View {
 
             TransactionsView()
                 .tabItem {
-                    if selection == 0 {
+                    if selection == 1 {
                         Image("")
                     } else {
                         Image("")
                     }
                     Text("List")
                 }
-                .tag(0)
+                .tag(1)
             
             GraphsView()
                 .tabItem {
-                    if selection == 0 {
+                    if selection == 2 {
                         Image("")
                     } else {
                         Image("")
                     }
                     Text("Overview")
                 }
-                .tag(0)
+                .tag(2)
             
             BanksView()
                 .tabItem {
-                    if selection == 0 {
+                    if selection == 3 {
                         Image("")
                     } else {
                         Image("")
                     }
                     Text("My Banks")
                 }
-                .tag(0)
+                .tag(3)
         }
     }
 }

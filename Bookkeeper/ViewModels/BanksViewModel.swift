@@ -1,9 +1,6 @@
+import Foundation
 import SwiftUI
 
 class BanksViewModel: ObservableObject {
-    var savedBanks: [Bank]?
-    
-    init() {
-        //load banks
-    }
+    //@Published var savedBanks: [Bank] = []
 }
