@@ -18,7 +18,6 @@
 		604EE906296BCBAD00FD1E1F /* BankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE905296BCBAD00FD1E1F /* BankModel.swift */; };
 		604EE908296BD6D100FD1E1F /* CreditCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE907296BD6D100FD1E1F /* CreditCardModel.swift */; };
 		604EE90A296BD76C00FD1E1F /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE909296BD76C00FD1E1F /* TransactionModel.swift */; };
-		604EE90C296D681D00FD1E1F /* BanksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE90B296D681D00FD1E1F /* BanksViewModel.swift */; };
 		60C1B3E829693E28007C4D14 /* BookkeeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3E729693E28007C4D14 /* BookkeeperApp.swift */; };
 		60C1B3EA29693E28007C4D14 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3E929693E28007C4D14 /* RootView.swift */; };
 		60C1B3F729695555007C4D14 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3F629695555007C4D14 /* CalendarView.swift */; };
@@ -40,7 +39,6 @@
 		604EE905296BCBAD00FD1E1F /* BankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankModel.swift; sourceTree = "<group>"; };
 		604EE907296BD6D100FD1E1F /* CreditCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardModel.swift; sourceTree = "<group>"; };
 		604EE909296BD76C00FD1E1F /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
-		604EE90B296D681D00FD1E1F /* BanksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksViewModel.swift; sourceTree = "<group>"; };
 		60C1B3E429693E28007C4D14 /* Bookkeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookkeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C1B3E729693E28007C4D14 /* BookkeeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookkeeperApp.swift; sourceTree = "<group>"; };
 		60C1B3E929693E28007C4D14 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -76,7 +74,6 @@
 		604EE8F0296966B900FD1E1F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				604EE90B296D681D00FD1E1F /* BanksViewModel.swift */,
 				604EE8F22969678E00FD1E1F /* BankDetailEditViewModel.swift */,
 			);
 			path = ViewModels;
@@ -299,7 +296,6 @@
 				604EE902296BC6EC00FD1E1F /* CreditCard.swift in Sources */,
 				604EE8F5296968B000FD1E1F /* BankDetailView.swift in Sources */,
 				60C1B3FB29695595007C4D14 /* TransactionsView.swift in Sources */,
-				604EE90C296D681D00FD1E1F /* BanksViewModel.swift in Sources */,
 				604EE8FB29696A0900FD1E1F /* TransactionDetailEditView.swift in Sources */,
 				60C1B40229695624007C4D14 /* BanksView.swift in Sources */,
 				604EE906296BCBAD00FD1E1F /* BankModel.swift in Sources */,
