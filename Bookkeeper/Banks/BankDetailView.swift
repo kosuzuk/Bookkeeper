@@ -1,15 +1,21 @@
 import SwiftUI
 
 struct BankDetailView: View {
-    var bank: Bank?
+    let bank: Bank?
+    let availableCreditCards: [CreditCard]
     let editCompletion: (() -> ())?
+    
+    func cardIdToName(_ id: String) -> String {
+        let ind = availableCreditCards.firstIndex(where: { $0.id == id })!
+        return availableCreditCards[ind].name
+    }
     
     var body: some View {
         ScrollView {
             VStack(spacing: 40) {
                 Spacer().frame(width: 40)
 
-                NavigationLink(destination: BankDetailEditView(editingBank: bank, editCompletion: editCompletion)) {
+                NavigationLink(destination: BankDetailEditView(editingBank: bank, availableCreditCards: availableCreditCards, editCompletion: editCompletion)) {
                     Text("Edit")
                 }
                 .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
@@ -33,7 +39,14 @@ struct BankDetailView: View {
                 VStack {
                     Text("Linked credit cards:")
 
-                    Text(" ")
+                    if bank!.linkedCreditCardIds.isEmpty {
+                        Text("None")
+                            .foregroundColor(.gray)
+                    } else {
+                        ForEach(bank!.linkedCreditCardIds, id: \.self) { id in
+                            Text(cardIdToName(id))
+                        }
+                    }
                 }
 
                 VStack {

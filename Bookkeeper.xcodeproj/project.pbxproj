@@ -18,6 +18,9 @@
 		604EE906296BCBAD00FD1E1F /* BankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE905296BCBAD00FD1E1F /* BankModel.swift */; };
 		604EE908296BD6D100FD1E1F /* CreditCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE907296BD6D100FD1E1F /* CreditCardModel.swift */; };
 		604EE90A296BD76C00FD1E1F /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE909296BD76C00FD1E1F /* TransactionModel.swift */; };
+		604EE90E2972C0F900FD1E1F /* CreditCardDetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE90D2972C0F900FD1E1F /* CreditCardDetailEditView.swift */; };
+		604EE9102972C10700FD1E1F /* CreditCardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE90F2972C10700FD1E1F /* CreditCardDetailView.swift */; };
+		604EE9122972C23900FD1E1F /* CreditCardDetailEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE9112972C23900FD1E1F /* CreditCardDetailEditViewModel.swift */; };
 		60C1B3E829693E28007C4D14 /* BookkeeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3E729693E28007C4D14 /* BookkeeperApp.swift */; };
 		60C1B3EA29693E28007C4D14 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3E929693E28007C4D14 /* RootView.swift */; };
 		60C1B3F729695555007C4D14 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3F629695555007C4D14 /* CalendarView.swift */; };
@@ -39,6 +42,9 @@
 		604EE905296BCBAD00FD1E1F /* BankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankModel.swift; sourceTree = "<group>"; };
 		604EE907296BD6D100FD1E1F /* CreditCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardModel.swift; sourceTree = "<group>"; };
 		604EE909296BD76C00FD1E1F /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
+		604EE90D2972C0F900FD1E1F /* CreditCardDetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardDetailEditView.swift; sourceTree = "<group>"; };
+		604EE90F2972C10700FD1E1F /* CreditCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardDetailView.swift; sourceTree = "<group>"; };
+		604EE9112972C23900FD1E1F /* CreditCardDetailEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardDetailEditViewModel.swift; sourceTree = "<group>"; };
 		60C1B3E429693E28007C4D14 /* Bookkeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookkeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C1B3E729693E28007C4D14 /* BookkeeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookkeeperApp.swift; sourceTree = "<group>"; };
 		60C1B3E929693E28007C4D14 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -75,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				604EE8F22969678E00FD1E1F /* BankDetailEditViewModel.swift */,
+				604EE9112972C23900FD1E1F /* CreditCardDetailEditViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -165,6 +172,8 @@
 				60C1B40129695624007C4D14 /* BanksView.swift */,
 				604EE8F4296968B000FD1E1F /* BankDetailView.swift */,
 				604EE8F6296968D300FD1E1F /* BankDetailEditView.swift */,
+				604EE90F2972C10700FD1E1F /* CreditCardDetailView.swift */,
+				604EE90D2972C0F900FD1E1F /* CreditCardDetailEditView.swift */,
 			);
 			path = Banks;
 			sourceTree = "<group>";
@@ -297,9 +306,12 @@
 				604EE8F5296968B000FD1E1F /* BankDetailView.swift in Sources */,
 				60C1B3FB29695595007C4D14 /* TransactionsView.swift in Sources */,
 				604EE8FB29696A0900FD1E1F /* TransactionDetailEditView.swift in Sources */,
+				604EE9102972C10700FD1E1F /* CreditCardDetailView.swift in Sources */,
 				60C1B40229695624007C4D14 /* BanksView.swift in Sources */,
+				604EE90E2972C0F900FD1E1F /* CreditCardDetailEditView.swift in Sources */,
 				604EE906296BCBAD00FD1E1F /* BankModel.swift in Sources */,
 				60C1B3FF29695605007C4D14 /* GraphsView.swift in Sources */,
+				604EE9122972C23900FD1E1F /* CreditCardDetailEditViewModel.swift in Sources */,
 				604EE8F9296969EC00FD1E1F /* TransactionDetailView.swift in Sources */,
 				60C1B3E829693E28007C4D14 /* BookkeeperApp.swift in Sources */,
 				60C1B3F729695555007C4D14 /* CalendarView.swift in Sources */,

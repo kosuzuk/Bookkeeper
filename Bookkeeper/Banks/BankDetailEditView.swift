@@ -1,8 +1,10 @@
 import SwiftUI
+import RealmSwift
 
 struct BankDetailEditView: View {
     @StateObject var viewModel = BankDetailEditViewModel()
     var editingBank: Bank?
+    let availableCreditCards: [CreditCard]
     let editCompletion: (() -> ())?
     @Environment(\.dismiss) var dismiss
     
@@ -47,7 +49,7 @@ struct BankDetailEditView: View {
                 
                 VStack {
                     HStack {
-                        Text("Link to credit card:")
+                        Text("Link to credit card(s):")
                         
                         Button {
                             viewModel.showingCreditCardList.toggle()
@@ -61,11 +63,14 @@ struct BankDetailEditView: View {
                     }
                 }
                 
+                Spacer()
+
                 if editingBank != nil {
                     Button("Delete bank") {
                         viewModel.showingDeleteAlert = true
                     }
                     .foregroundColor(.red)
+                    .padding(20)
                 }
             }
         }
@@ -82,14 +87,29 @@ struct BankDetailEditView: View {
         }
         .overlay(
             VStack {
-                ForEach(viewModel.availableCreditCards, id: \.id) { card in
-                    Button(card.name) {
-                        viewModel.selectedCreditCards = [card]
-                        viewModel.showingCreditCardList = false
+                if viewModel.showingCreditCardList {
+                    ForEach(availableCreditCards, id: \.id) { card in
+                        Button((viewModel.isCreditCardSelected(card.id) ? "✓" : "") + card.name) {
+                            if viewModel.isCreditCardSelected(card.id) {
+                                let ind = viewModel.selectedCreditCards.firstIndex(where: { $0.id == card.id })!
+                                viewModel.selectedCreditCards.remove(at: ind)
+                                viewModel.showingCreditCardList = false
+                            } else {
+                                if card.linkedBankId == nil {
+                                    viewModel.selectedCreditCards.append(card)
+                                    viewModel.showingCreditCardList = false
+                                }
+                            }
+                        }
+                        .foregroundColor(viewModel.creditCardTaken(card.linkedBankId ?? "", editingBank?.id ?? "") ? .gray : .black)
                     }
                 }
             }
-            .padding(EdgeInsets(top: 200, leading: 20, bottom: 0, trailing: 0))
+            .padding(EdgeInsets(top: 240, leading: 0, bottom: 0, trailing: 0))
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(.gray, lineWidth: 1)
+            )
         )
         .gesture(
             TapGesture()
@@ -119,7 +139,15 @@ struct BankDetailEditView: View {
                 viewModel.name = bank.name
                 viewModel.availableBalance = String(bank.availableBalance)
                 viewModel.monthlyDeposit = String(bank.monthlyDeposit)
-//                viewModel.selectedCreditCards = bank.linkedCreditCardIds
+                
+                var cards: [CreditCard] = []
+                for id in bank.linkedCreditCardIds {
+                    if let ind = availableCreditCards.firstIndex(where: { $0.id == id }) {
+                        cards.append(availableCreditCards[ind])
+                    }
+                }
+                viewModel.originallySelectedCreditCards = cards
+                viewModel.selectedCreditCards = cards
             }
         }
     }
