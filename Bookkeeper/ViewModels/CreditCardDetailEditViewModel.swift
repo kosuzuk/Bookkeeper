@@ -4,20 +4,17 @@ import RealmSwift
 
 class CreditCardDetailEditViewModel: ObservableObject {
     @Published var name = ""
-    @Published var showingBankList = false
+    @Published var currency = Currency.yen
     @Published var selectedBank: Bank?
+    @Published var selectedBankName = ""
     @Published var showingError = false
     @Published var showingDeleteAlert = false
     var originallySelectedBank: Bank?
     let realm = try! Realm()
     
-    func isBankSelected(_ id: String) -> Bool {
-        return (selectedBank?.id ?? "") == id
-    }
-    
     func saveChanges(_ editingCreditCard: CreditCard?, completion: ((Bool) -> ())) {
         // check for invalid input
-        if name.isEmpty {
+        if name.isEmpty || (selectedBank != nil && currency != selectedBank!.currency) {
             showingError = true
             completion(false)
             return
@@ -35,7 +32,7 @@ class CreditCardDetailEditViewModel: ObservableObject {
         }
         
         // save the changes as a new credit card model
-        let newCard = CreditCard(id: id, name: name, linkedBankId: selectedBank?.id, recentTransactionIds: editingCreditCard?.recentTransactionIds ?? [])
+        let newCard = CreditCard(id: id, name: name, currency: currency, linkedBankId: selectedBank?.id, recentTransactionIds: editingCreditCard?.recentTransactionIds ?? [])
         let newDBObj = CreditCardModel(creditCard: newCard)
         try! realm.write {
             realm.add(newDBObj)
@@ -63,7 +60,9 @@ class CreditCardDetailEditViewModel: ObservableObject {
         }
         
         // modify the linked bank model
-        modifyLinkedBank(bank: originallySelectedBank!, addingSelf: false, editingCardId: editingCreditCard!.id)
+        if let linkedBank = originallySelectedBank {
+            modifyLinkedBank(bank: linkedBank, addingSelf: false, editingCardId: editingCreditCard!.id)
+        }
         
         // exit the view
         completion(true)

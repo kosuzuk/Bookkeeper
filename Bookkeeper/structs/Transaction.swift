@@ -3,29 +3,36 @@ import Foundation
 struct Transaction {
     var id: String
     var date: Date
-    var amount: Int
-    var spending: Bool
+    var amount: Double
+    var currency: String
+    var isSpend: Bool
     var bankId: String?
     var creditCardId: String?
     var title: String
     var details: String
+    var expenseCategory: ExpenseCategoryType?
+    var incomeCategory: IncomeCategoryType?
     
-    init(id: String, date: Date, amount: Int, spending: Bool, bankId: String? = nil, creditCardId: String? = nil, title: String = "", details: String = "") {
+    init(id: String, date: Date, amount: Double, currency: String, isSpend: Bool, bankId: String? = nil, creditCardId: String? = nil, title: String = "", details: String = "", expenseCategory: ExpenseCategoryType? = nil, incomeCategory: IncomeCategoryType? = nil) {
         self.id = id
         self.date = date
         self.amount = amount
-        self.spending = spending
+        self.currency = currency
+        self.isSpend = isSpend
         self.bankId = bankId
         self.creditCardId = creditCardId
         self.title = title
         self.details = details
+        self.expenseCategory = expenseCategory
+        self.incomeCategory = incomeCategory
     }
     
     init(_ dbObj: TransactionModel) {
         self.id = dbObj.id
         self.date = dbObj.date
         self.amount = dbObj.amount
-        self.spending = dbObj.spending
+        self.currency = dbObj.currency
+        self.isSpend = dbObj.spending
         if let id = dbObj.bankId {
             self.bankId = id
         }
@@ -34,5 +41,11 @@ struct Transaction {
         }
         self.title = dbObj.title
         self.details = dbObj.details
+        if let category = dbObj.expenseCategory {
+            self.expenseCategory = ExpenseCategoryType(rawValue: category)
+        }
+        if let category = dbObj.incomeCategory {
+            self.incomeCategory = IncomeCategoryType(rawValue: category)
+        }
     }
 }

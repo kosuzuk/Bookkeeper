@@ -2,29 +2,7 @@ import SwiftUI
 import RealmSwift
 
 struct BanksView: View {
-    @State var savedBanks: [Bank] = []
-    @State var savedCreditCards: [CreditCard] = []
-    @State var showingAddNewAlert = false
-    @State var showingBankDetailView = false
-    @State var showingCreditCardDetailView = false
-    
-    func resetList() {
-        let realm = try! Realm()
-        
-        let bankObjects = realm.objects(BankModel.self)
-        var banks = [Bank]()
-        for obj in bankObjects {
-            banks.append(Bank(obj))
-        }
-        savedBanks = banks
-        
-        let cardObjects = realm.objects(CreditCardModel.self)
-        var creditCards = [CreditCard]()
-        for obj in cardObjects {
-            creditCards.append(CreditCard(obj))
-        }
-        savedCreditCards = creditCards
-    }
+    @StateObject var viewModel = BanksViewModel()
     
     var body: some View {
         NavigationView {
@@ -34,16 +12,18 @@ struct BanksView: View {
                     
                     Text("Banks:")
                     
-                    ForEach(savedBanks, id: \.id) { bank in
-                        NavigationLink(destination: BankDetailView(bank: bank, availableCreditCards: savedCreditCards, editCompletion: resetList)) {
+                    ForEach(viewModel.savedBanks, id: \.id) { bank in
+                        NavigationLink(destination: BankDetailView(bank: bank, availableCreditCards: viewModel.savedCreditCards, editCompletion: viewModel.resetList)) {
                             Text(bank.name)
                         }
                     }
                     
+                    Text("Total: \(viewModel.savedBanks.reduce(0) { $0 + $1.monthlyDeposit })")
+                    
                     Text("Credit Cards:")
                     
-                    ForEach(savedCreditCards, id: \.id) { card in
-                        NavigationLink(destination: CreditCardDetailView(creditCard: card, availableBanks: savedBanks, editCompletion: resetList)) {
+                    ForEach(viewModel.savedCreditCards, id: \.id) { card in
+                        NavigationLink(destination: CreditCardDetailView(creditCard: card, availableBanks: viewModel.savedBanks, editCompletion: viewModel.resetList)) {
                             Text(card.name)
                         }
                     }
@@ -51,13 +31,13 @@ struct BanksView: View {
                     Spacer()
 
                     Button("Add New") {
-                        showingAddNewAlert = true
+                        viewModel.showingAddNewAlert = true
                     }
                     .foregroundColor(.red)
                     
-                    NavigationLink(destination: BankDetailEditView(availableCreditCards: savedCreditCards, editCompletion: resetList), isActive: $showingBankDetailView) { EmptyView() }
+                    NavigationLink(destination: BankDetailEditView(availableCreditCards: viewModel.savedCreditCards, editCompletion: viewModel.resetList), isActive: $viewModel.showingBankDetailView) { EmptyView() }
                     
-                    NavigationLink(destination: CreditCardDetailEditView(availableBanks: savedBanks, editCompletion: resetList), isActive: $showingCreditCardDetailView) { EmptyView() }
+                    NavigationLink(destination: CreditCardDetailEditView(availableBanks: viewModel.savedBanks, editCompletion: viewModel.resetList), isActive: $viewModel.showingCreditCardDetailView) { EmptyView() }
                 }
             }
         }
@@ -67,16 +47,16 @@ struct BanksView: View {
 //                realm.deleteAll()
 //            }
 
-            resetList()
+            viewModel.resetList()
         }
-        .alert(isPresented: $showingAddNewAlert) {
+        .alert(isPresented: $viewModel.showingAddNewAlert) {
             Alert(
                 title: Text("What would you like to add?"),
                 primaryButton: .default(Text("Bank")) {
-                    showingBankDetailView = true
+                    viewModel.showingBankDetailView = true
                 },
                 secondaryButton: .default(Text("Credit Card")) {
-                    showingCreditCardDetailView = true
+                    viewModel.showingCreditCardDetailView = true
                 }
             )
         }

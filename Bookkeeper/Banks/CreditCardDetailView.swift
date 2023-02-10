@@ -23,6 +23,12 @@ struct CreditCardDetailView: View {
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(.blue, lineWidth: 1)
                 )
+                
+                HStack {
+                    Text("Currency:")
+                    
+                    Text(creditCard!.currency.rawValue)
+                }
 
                 VStack {
                     Text("Linked bank:")

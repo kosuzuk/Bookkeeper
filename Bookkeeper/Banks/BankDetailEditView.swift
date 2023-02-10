@@ -23,43 +23,54 @@ struct BankDetailEditView: View {
                         )
                 }
                 
+                Text("Currency:")
+                
+                Picker("Currency", selection: $viewModel.currency) {
+                    ForEach(Currency.allCases, id: \.self) {
+                        Text($0.rawValue)
+                    }
+                }
+                .onChange(of: viewModel.currency) { currency in
+                    if currency == .yen {
+                        viewModel.availableBalance = "0"
+                        viewModel.monthlyDeposit = "0"
+                    } else {
+                        viewModel.availableBalance = "0.00"
+                        viewModel.monthlyDeposit = "0.00"
+                    }
+                }
+                
                 VStack {
                     Text("Available balance")
                     
-                    TextField("", text: $viewModel.availableBalance)
-                        .frame(width: 200, height: 40)
-                        .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(.gray, lineWidth: 1)
-                        )
+                    HStack {
+                        Text("\(viewModel.currency.symbol)")
+                        
+                        TextField("", text: $viewModel.availableBalance)
+                            .frame(width: 200, height: 40)
+                            .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(.gray, lineWidth: 1)
+                            )
+                            .keyboardType(viewModel.currency == .yen ? .numberPad : .decimalPad)
+                    }
                 }
                 
                 VStack {
                     Text("Monthly deposit")
                     
-                    TextField("", text: $viewModel.monthlyDeposit)
-                        .frame(width: 200, height: 40)
-                        .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(.gray, lineWidth: 1)
-                        )
-                }
-                
-                VStack {
                     HStack {
-                        Text("Link to credit card(s):")
+                        Text("\(viewModel.currency.symbol)")
                         
-                        Button {
-                            viewModel.showingCreditCardList.toggle()
-                        } label: {
-                            if viewModel.showingCreditCardList {
-                                Text("▼")
-                            } else {
-                                Text("▲")
-                            }
-                        }
+                        TextField("", text: $viewModel.monthlyDeposit)
+                            .frame(width: 200, height: 40)
+                            .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(.gray, lineWidth: 1)
+                            )
+                            .keyboardType(viewModel.currency == .yen ? .numberPad : .decimalPad)
                     }
                 }
                 
@@ -85,38 +96,6 @@ struct BankDetailEditView: View {
                 }
             }
         }
-        .overlay(
-            VStack {
-                if viewModel.showingCreditCardList {
-                    ForEach(availableCreditCards, id: \.id) { card in
-                        Button((viewModel.isCreditCardSelected(card.id) ? "✓" : "") + card.name) {
-                            if viewModel.isCreditCardSelected(card.id) {
-                                let ind = viewModel.selectedCreditCards.firstIndex(where: { $0.id == card.id })!
-                                viewModel.selectedCreditCards.remove(at: ind)
-                                viewModel.showingCreditCardList = false
-                            } else {
-                                if card.linkedBankId == nil {
-                                    viewModel.selectedCreditCards.append(card)
-                                    viewModel.showingCreditCardList = false
-                                }
-                            }
-                        }
-                        .foregroundColor(viewModel.creditCardTaken(card.linkedBankId ?? "", editingBank?.id ?? "") ? .gray : .black)
-                    }
-                }
-            }
-            .padding(EdgeInsets(top: 240, leading: 0, bottom: 0, trailing: 0))
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(.gray, lineWidth: 1)
-            )
-        )
-        .gesture(
-            TapGesture()
-                .onEnded { _ in
-                    viewModel.showingCreditCardList = false
-                }
-        )
         .alert("Error", isPresented: $viewModel.showingError) {
             Button("OK", role: .cancel) { }
         }
@@ -137,6 +116,7 @@ struct BankDetailEditView: View {
         .onAppear {
             if let bank = editingBank {
                 viewModel.name = bank.name
+                viewModel.currency = bank.currency
                 viewModel.availableBalance = String(bank.availableBalance)
                 viewModel.monthlyDeposit = String(bank.monthlyDeposit)
                 
@@ -146,8 +126,7 @@ struct BankDetailEditView: View {
                         cards.append(availableCreditCards[ind])
                     }
                 }
-                viewModel.originallySelectedCreditCards = cards
-                viewModel.selectedCreditCards = cards
+                viewModel.linkedCreditCards = cards
             }
         }
     }

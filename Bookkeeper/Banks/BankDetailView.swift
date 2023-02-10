@@ -27,13 +27,13 @@ struct BankDetailView: View {
                 VStack {
                     Text("Available Balance:")
 
-                    Text("\(bank?.availableBalance ?? 0)")
+                    Text("\(Currency(rawValue: bank?.currency.rawValue ?? "")?.symbol ?? "")\(bank?.availableBalance ?? 0)")
                 }
 
                 VStack {
                     Text("Monthly deposit:")
 
-                    Text("\(bank?.monthlyDeposit ?? 0)")
+                    Text("\(Currency(rawValue: bank?.currency.rawValue ?? "")?.symbol ?? "")\(bank?.monthlyDeposit ?? 0)")
                 }
 
                 VStack {

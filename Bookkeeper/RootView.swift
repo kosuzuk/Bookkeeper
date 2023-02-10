@@ -5,49 +5,60 @@ struct RootView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            CalendarView()
+            TransactionEntryView()
                 .tabItem {
                     if selection == 0 {
                         Image("")
                     } else {
                         Image("")
                     }
-                    Text("Calendar")
+                    Text("New Entry")
                 }
                 .tag(0)
-
-            TransactionsView()
+            
+            CalendarView()
                 .tabItem {
                     if selection == 1 {
                         Image("")
                     } else {
                         Image("")
                     }
-                    Text("List")
+                    Text("Calendar")
                 }
                 .tag(1)
-            
-            GraphsView()
+
+            TransactionsView()
                 .tabItem {
                     if selection == 2 {
                         Image("")
                     } else {
                         Image("")
                     }
-                    Text("Overview")
+                    Text("List")
                 }
                 .tag(2)
             
-            BanksView()
+            OverviewView()
                 .tabItem {
                     if selection == 3 {
                         Image("")
                     } else {
                         Image("")
                     }
-                    Text("My Banks")
+                    Text("Overview")
                 }
                 .tag(3)
+            
+            BanksView()
+                .tabItem {
+                    if selection == 4 {
+                        Image("")
+                    } else {
+                        Image("")
+                    }
+                    Text("My Banks")
+                }
+                .tag(4)
         }
     }
 }

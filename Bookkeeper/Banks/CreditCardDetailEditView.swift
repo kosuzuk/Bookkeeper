@@ -23,18 +23,25 @@ struct CreditCardDetailEditView: View {
                         )
                 }
                 
-                VStack {
-                    HStack {
-                        Text("Link to bank:")
-                        
-                        Button {
-                            viewModel.showingBankList.toggle()
-                        } label: {
-                            if viewModel.showingBankList {
-                                Text("▼")
-                            } else {
-                                Text("▲")
-                            }
+                Text("Currency:")
+                
+                Picker("Currency", selection: $viewModel.currency) {
+                    ForEach(Currency.allCases, id: \.self) {
+                        Text($0.rawValue)
+                    }
+                }
+                
+                HStack {
+                    Text("Linked to :")
+                    
+                    Picker("", selection: $viewModel.selectedBankName) {
+                        ForEach(availableBanks.map({ $0.name }), id: \.self) {
+                            Text($0)
+                        }
+                    }
+                    .onChange(of: viewModel.selectedBankName) { newValue in
+                        if let ind = availableBanks.firstIndex(where: { $0.name == viewModel.selectedBankName }) {
+                            viewModel.selectedBank = availableBanks[ind]
                         }
                     }
                 }
@@ -61,35 +68,6 @@ struct CreditCardDetailEditView: View {
                 }
             }
         }
-        .overlay(
-            VStack {
-                if viewModel.showingBankList {
-                    ForEach(availableBanks, id: \.id) { bank in
-                        Button((viewModel.isBankSelected(bank.id) ? "✓" : "") + bank.name) {
-                            if viewModel.isBankSelected(bank.id) {
-                                viewModel.selectedBank = nil
-                                viewModel.showingBankList = false
-                            } else {
-                                viewModel.selectedBank = bank
-                                viewModel.showingBankList = false
-                            }
-                        }
-                        .foregroundColor(.black)
-                    }
-                }
-            }
-            .padding(EdgeInsets(top: 120, leading: 0, bottom: 0, trailing: 0))
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(.gray, lineWidth: 1)
-            )
-        )
-        .gesture(
-            TapGesture()
-                .onEnded { _ in
-                    viewModel.showingBankList = false
-                }
-        )
         .alert("Error", isPresented: $viewModel.showingError) {
             Button("OK", role: .cancel) { }
         }
@@ -110,11 +88,17 @@ struct CreditCardDetailEditView: View {
         .onAppear {
             if let card = editingCreditCard {
                 viewModel.name = card.name
+                viewModel.currency = card.currency
                 
                 if let id = card.linkedBankId, let ind = availableBanks.firstIndex(where: { $0.id == id }) {
-                    viewModel.selectedBank = availableBanks[ind]
+                    
+                    viewModel.selectedBankName = availableBanks[ind].name
                     viewModel.originallySelectedBank = availableBanks[ind]
+                } else {
+                    viewModel.selectedBankName = availableBanks.first?.name ?? ""
                 }
+            } else {
+                viewModel.selectedBankName = availableBanks.first?.name ?? ""
             }
         }
     }

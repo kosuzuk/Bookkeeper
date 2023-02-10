@@ -21,11 +21,19 @@
 		604EE90E2972C0F900FD1E1F /* CreditCardDetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE90D2972C0F900FD1E1F /* CreditCardDetailEditView.swift */; };
 		604EE9102972C10700FD1E1F /* CreditCardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE90F2972C10700FD1E1F /* CreditCardDetailView.swift */; };
 		604EE9122972C23900FD1E1F /* CreditCardDetailEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE9112972C23900FD1E1F /* CreditCardDetailEditViewModel.swift */; };
+		60A255432978F0960012FAFC /* CalendarDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A255422978F0960012FAFC /* CalendarDay.swift */; };
+		60A255452978F5AE0012FAFC /* CalendarDayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A255442978F5AE0012FAFC /* CalendarDayButtonView.swift */; };
+		60A2554729791B490012FAFC /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A2554629791B490012FAFC /* CalendarViewModel.swift */; };
+		60A2554929791D000012FAFC /* BanksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A2554829791D000012FAFC /* BanksViewModel.swift */; };
+		60A2554C297933130012FAFC /* TransactionEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A2554B297933130012FAFC /* TransactionEntryView.swift */; };
+		60A2554E297933840012FAFC /* TransactionEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A2554D297933840012FAFC /* TransactionEntryViewModel.swift */; };
+		60A255502979479E0012FAFC /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A2554F2979479E0012FAFC /* Categories.swift */; };
+		60A255522979535C0012FAFC /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A255512979535C0012FAFC /* Currency.swift */; };
 		60C1B3E829693E28007C4D14 /* BookkeeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3E729693E28007C4D14 /* BookkeeperApp.swift */; };
 		60C1B3EA29693E28007C4D14 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3E929693E28007C4D14 /* RootView.swift */; };
 		60C1B3F729695555007C4D14 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3F629695555007C4D14 /* CalendarView.swift */; };
 		60C1B3FB29695595007C4D14 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3FA29695595007C4D14 /* TransactionsView.swift */; };
-		60C1B3FF29695605007C4D14 /* GraphsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3FE29695605007C4D14 /* GraphsView.swift */; };
+		60C1B3FF29695605007C4D14 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3FE29695605007C4D14 /* OverviewView.swift */; };
 		60C1B40229695624007C4D14 /* BanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B40129695624007C4D14 /* BanksView.swift */; };
 		DCC750FD05E14C58C3F08CFA /* Pods_Bookkeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CBA5A7BCA0F72DFCD390E1 /* Pods_Bookkeeper.framework */; };
 /* End PBXBuildFile section */
@@ -45,12 +53,20 @@
 		604EE90D2972C0F900FD1E1F /* CreditCardDetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardDetailEditView.swift; sourceTree = "<group>"; };
 		604EE90F2972C10700FD1E1F /* CreditCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardDetailView.swift; sourceTree = "<group>"; };
 		604EE9112972C23900FD1E1F /* CreditCardDetailEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardDetailEditViewModel.swift; sourceTree = "<group>"; };
+		60A255422978F0960012FAFC /* CalendarDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDay.swift; sourceTree = "<group>"; };
+		60A255442978F5AE0012FAFC /* CalendarDayButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayButtonView.swift; sourceTree = "<group>"; };
+		60A2554629791B490012FAFC /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		60A2554829791D000012FAFC /* BanksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksViewModel.swift; sourceTree = "<group>"; };
+		60A2554B297933130012FAFC /* TransactionEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEntryView.swift; sourceTree = "<group>"; };
+		60A2554D297933840012FAFC /* TransactionEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEntryViewModel.swift; sourceTree = "<group>"; };
+		60A2554F2979479E0012FAFC /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		60A255512979535C0012FAFC /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		60C1B3E429693E28007C4D14 /* Bookkeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookkeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C1B3E729693E28007C4D14 /* BookkeeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookkeeperApp.swift; sourceTree = "<group>"; };
 		60C1B3E929693E28007C4D14 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		60C1B3F629695555007C4D14 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		60C1B3FA29695595007C4D14 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
-		60C1B3FE29695605007C4D14 /* GraphsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphsView.swift; sourceTree = "<group>"; };
+		60C1B3FE29695605007C4D14 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		60C1B40129695624007C4D14 /* BanksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksView.swift; sourceTree = "<group>"; };
 		60CBA5A7BCA0F72DFCD390E1 /* Pods_Bookkeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookkeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55818846E1F9B4106400066 /* Pods-Bookkeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookkeeper.release.xcconfig"; path = "Target Support Files/Pods-Bookkeeper/Pods-Bookkeeper.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +96,9 @@
 		604EE8F0296966B900FD1E1F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				60A2554D297933840012FAFC /* TransactionEntryViewModel.swift */,
+				60A2554629791B490012FAFC /* CalendarViewModel.swift */,
+				60A2554829791D000012FAFC /* BanksViewModel.swift */,
 				604EE8F22969678E00FD1E1F /* BankDetailEditViewModel.swift */,
 				604EE9112972C23900FD1E1F /* CreditCardDetailEditViewModel.swift */,
 			);
@@ -99,11 +118,22 @@
 		604EE8FE296BC6A200FD1E1F /* Structs */ = {
 			isa = PBXGroup;
 			children = (
+				60A255422978F0960012FAFC /* CalendarDay.swift */,
 				604EE8FF296BC6C400FD1E1F /* Bank.swift */,
 				604EE901296BC6EC00FD1E1F /* CreditCard.swift */,
 				604EE903296BC6F500FD1E1F /* Transaction.swift */,
+				60A2554F2979479E0012FAFC /* Categories.swift */,
+				60A255512979535C0012FAFC /* Currency.swift */,
 			);
 			path = Structs;
+			sourceTree = "<group>";
+		};
+		60A2554A297932F90012FAFC /* TransactionEntry */ = {
+			isa = PBXGroup;
+			children = (
+				60A2554B297933130012FAFC /* TransactionEntryView.swift */,
+			);
+			path = TransactionEntry;
 			sourceTree = "<group>";
 		};
 		60C1B3DB29693E28007C4D14 = {
@@ -129,9 +159,10 @@
 			children = (
 				60C1B3E729693E28007C4D14 /* BookkeeperApp.swift */,
 				60C1B3E929693E28007C4D14 /* RootView.swift */,
+				60A2554A297932F90012FAFC /* TransactionEntry */,
 				60C1B3F529695544007C4D14 /* Calendar */,
 				60C1B3F929695586007C4D14 /* Transactions */,
-				60C1B3FD296955FB007C4D14 /* Graphs */,
+				60C1B3FD296955FB007C4D14 /* Overview */,
 				60C1B40029695618007C4D14 /* Banks */,
 				604EE8F0296966B900FD1E1F /* ViewModels */,
 				604EE8FE296BC6A200FD1E1F /* Structs */,
@@ -144,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				60C1B3F629695555007C4D14 /* CalendarView.swift */,
+				60A255442978F5AE0012FAFC /* CalendarDayButtonView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -158,12 +190,12 @@
 			path = Transactions;
 			sourceTree = "<group>";
 		};
-		60C1B3FD296955FB007C4D14 /* Graphs */ = {
+		60C1B3FD296955FB007C4D14 /* Overview */ = {
 			isa = PBXGroup;
 			children = (
-				60C1B3FE29695605007C4D14 /* GraphsView.swift */,
+				60C1B3FE29695605007C4D14 /* OverviewView.swift */,
 			);
-			path = Graphs;
+			path = Overview;
 			sourceTree = "<group>";
 		};
 		60C1B40029695618007C4D14 /* Banks */ = {
@@ -301,19 +333,27 @@
 			files = (
 				604EE90A296BD76C00FD1E1F /* TransactionModel.swift in Sources */,
 				604EE8F7296968D300FD1E1F /* BankDetailEditView.swift in Sources */,
+				60A255432978F0960012FAFC /* CalendarDay.swift in Sources */,
 				60C1B3EA29693E28007C4D14 /* RootView.swift in Sources */,
+				60A2554E297933840012FAFC /* TransactionEntryViewModel.swift in Sources */,
+				60A255502979479E0012FAFC /* Categories.swift in Sources */,
 				604EE902296BC6EC00FD1E1F /* CreditCard.swift in Sources */,
+				60A2554729791B490012FAFC /* CalendarViewModel.swift in Sources */,
 				604EE8F5296968B000FD1E1F /* BankDetailView.swift in Sources */,
 				60C1B3FB29695595007C4D14 /* TransactionsView.swift in Sources */,
 				604EE8FB29696A0900FD1E1F /* TransactionDetailEditView.swift in Sources */,
 				604EE9102972C10700FD1E1F /* CreditCardDetailView.swift in Sources */,
+				60A255522979535C0012FAFC /* Currency.swift in Sources */,
 				60C1B40229695624007C4D14 /* BanksView.swift in Sources */,
 				604EE90E2972C0F900FD1E1F /* CreditCardDetailEditView.swift in Sources */,
+				60A255452978F5AE0012FAFC /* CalendarDayButtonView.swift in Sources */,
 				604EE906296BCBAD00FD1E1F /* BankModel.swift in Sources */,
-				60C1B3FF29695605007C4D14 /* GraphsView.swift in Sources */,
+				60A2554C297933130012FAFC /* TransactionEntryView.swift in Sources */,
+				60C1B3FF29695605007C4D14 /* OverviewView.swift in Sources */,
 				604EE9122972C23900FD1E1F /* CreditCardDetailEditViewModel.swift in Sources */,
 				604EE8F9296969EC00FD1E1F /* TransactionDetailView.swift in Sources */,
 				60C1B3E829693E28007C4D14 /* BookkeeperApp.swift in Sources */,
+				60A2554929791D000012FAFC /* BanksViewModel.swift in Sources */,
 				60C1B3F729695555007C4D14 /* CalendarView.swift in Sources */,
 				604EE900296BC6C400FD1E1F /* Bank.swift in Sources */,
 				604EE908296BD6D100FD1E1F /* CreditCardModel.swift in Sources */,

@@ -15,3 +15,8 @@ struct BookkeeperApp: App {
         }
     }
 }
+
+struct Device {
+    static let width = UIScreen.main.bounds.width
+    static let height = UIScreen.main.bounds.height
+}
