@@ -4,7 +4,7 @@ struct Transaction {
     var id: String
     var date: Date
     var amount: Double
-    var currency: String
+    var currency: Currency
     var isSpend: Bool
     var bankId: String?
     var creditCardId: String?
@@ -13,7 +13,7 @@ struct Transaction {
     var expenseCategory: ExpenseCategoryType?
     var incomeCategory: IncomeCategoryType?
     
-    init(id: String, date: Date, amount: Double, currency: String, isSpend: Bool, bankId: String? = nil, creditCardId: String? = nil, title: String = "", details: String = "", expenseCategory: ExpenseCategoryType? = nil, incomeCategory: IncomeCategoryType? = nil) {
+    init(id: String, date: Date, amount: Double, currency: Currency, isSpend: Bool, bankId: String? = nil, creditCardId: String? = nil, title: String = "", details: String = "", expenseCategory: ExpenseCategoryType? = nil, incomeCategory: IncomeCategoryType? = nil) {
         self.id = id
         self.date = date
         self.amount = amount
@@ -31,7 +31,7 @@ struct Transaction {
         self.id = dbObj.id
         self.date = dbObj.date
         self.amount = dbObj.amount
-        self.currency = dbObj.currency
+        self.currency = Currency(rawValue: dbObj.currency)!
         self.isSpend = dbObj.spending
         if let id = dbObj.bankId {
             self.bankId = id

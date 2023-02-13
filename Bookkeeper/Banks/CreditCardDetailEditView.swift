@@ -34,14 +34,9 @@ struct CreditCardDetailEditView: View {
                 HStack {
                     Text("Linked to :")
                     
-                    Picker("", selection: $viewModel.selectedBankName) {
+                    Picker("No saved banks", selection: $viewModel.selectedBank) {
                         ForEach(availableBanks.map({ $0.name }), id: \.self) {
                             Text($0)
-                        }
-                    }
-                    .onChange(of: viewModel.selectedBankName) { newValue in
-                        if let ind = availableBanks.firstIndex(where: { $0.name == viewModel.selectedBankName }) {
-                            viewModel.selectedBank = availableBanks[ind]
                         }
                     }
                 }
@@ -91,15 +86,11 @@ struct CreditCardDetailEditView: View {
                 viewModel.currency = card.currency
                 
                 if let id = card.linkedBankId, let ind = availableBanks.firstIndex(where: { $0.id == id }) {
-                    
-                    viewModel.selectedBankName = availableBanks[ind].name
                     viewModel.originallySelectedBank = availableBanks[ind]
-                } else {
-                    viewModel.selectedBankName = availableBanks.first?.name ?? ""
                 }
-            } else {
-                viewModel.selectedBankName = availableBanks.first?.name ?? ""
             }
+            
+            viewModel.selectedBank = availableBanks.first
         }
     }
 }

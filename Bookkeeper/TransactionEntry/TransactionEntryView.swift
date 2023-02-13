@@ -23,8 +23,8 @@ struct TransactionEntryView: View {
             HStack {
                 Text("Date")
                 
-                DatePicker(selection: $viewModel.selectedDate, in: ...Date.now, displayedComponents: .date) {
-                    Text(viewModel.selectedDate.formatted(date: .long, time: .omitted))
+                DatePicker(selection: $viewModel.date, in: ...Date.now, displayedComponents: .date) {
+                    Text(viewModel.date.formatted(date: .long, time: .omitted))
                 }
             }
             
@@ -39,7 +39,7 @@ struct TransactionEntryView: View {
                 
                 Text(viewModel.currency.symbol)
                 
-                TextField("", text: $viewModel.amount)
+                TextField("0", text: $viewModel.amount)
                     .keyboardType(viewModel.currency == .yen ? .numberPad : .decimalPad)
                     .focused($isNumberPadActive)
                     .toolbar {
@@ -78,7 +78,7 @@ struct TransactionEntryView: View {
                 Text(viewModel.isSpend ? "Using:" : "Deposit to:")
                 
                 if viewModel.payWithBank {
-                    Picker("", selection: $viewModel.bank) {
+                    Picker("No saved banks", selection: $viewModel.bank) {
                         ForEach(viewModel.availableBanks, id: \.id) { bank in
                             Text(bank.name).tag(bank)
                         }
@@ -87,7 +87,7 @@ struct TransactionEntryView: View {
                         viewModel.checkCurrencyChanged(newCurrency: bank.currency)
                     }
                 } else {
-                    Picker("", selection: $viewModel.creditCard) {
+                    Picker("No saved credit cards", selection: $viewModel.creditCard) {
                         ForEach(viewModel.availableCreditCards, id: \.id) { card in
                             Text(card.name).tag(card)
                         }
@@ -150,8 +150,11 @@ struct TransactionEntryView: View {
                 }),
                 secondaryButton: .destructive(Text("cancel")))
         }
+        .alert("Error", isPresented: $viewModel.showingError) {
+            Button("OK", role: .cancel) {}
+        }
         .onAppear {
-            viewModel.fetchBanksAndCards()
+            viewModel.resetBanksAndCardsData()
         }
     }
 }

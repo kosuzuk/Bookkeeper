@@ -40,6 +40,7 @@ class BankDetailEditViewModel: ObservableObject {
         
         // exit the view
         completion(true)
+        
         NotificationCenter.default.post(name: Notification.Name("bankInfoChanged"), object: nil)
     }
     

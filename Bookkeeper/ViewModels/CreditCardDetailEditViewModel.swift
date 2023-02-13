@@ -6,7 +6,6 @@ class CreditCardDetailEditViewModel: ObservableObject {
     @Published var name = ""
     @Published var currency = Currency.yen
     @Published var selectedBank: Bank?
-    @Published var selectedBankName = ""
     @Published var showingError = false
     @Published var showingDeleteAlert = false
     var originallySelectedBank: Bank?

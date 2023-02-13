@@ -60,5 +60,6 @@ struct RootView: View {
                 }
                 .tag(4)
         }
+        .environment(\.colorScheme, .light)
     }
 }

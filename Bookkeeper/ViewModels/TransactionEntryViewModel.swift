@@ -3,9 +3,9 @@ import SwiftUI
 import RealmSwift
 class TransactionEntryViewModel: ObservableObject {
     @Published var isSpend = true
-    @Published var selectedDate = Date()
+    @Published var date = Date()
     @Published var notes = ""
-    @Published var amount = "0"
+    @Published var amount = ""
     @Published var payWithBank = true
     @Published var bank = Bank(id: "", name: "None available", currency: .yen, availableBalance: 0, monthlyDeposit: 0)
     @Published var creditCard = CreditCard(id: "", name: "None available", currency: .yen)
@@ -13,6 +13,7 @@ class TransactionEntryViewModel: ObservableObject {
     @Published var expenseCategory: ExpenseCategoryType?
     @Published var incomeCategory: IncomeCategoryType?
     @Published var showingAlert = false
+    @Published var showingError = false
     let realm = try! Realm()
     var availableBanks: [Bank] = []
     var availableCreditCards: [CreditCard] = []
@@ -21,10 +22,10 @@ class TransactionEntryViewModel: ObservableObject {
     let availableIncomeCategories: [IncomeCategory] = IncomeCategoryType.allCases.map({ IncomeCategory(type: $0) })
     
     init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(fetchBanksAndCards), name: Notification.Name("bankInfoChanged"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resetBanksAndCardsData), name: Notification.Name("bankInfoChanged"), object: nil)
     }
     
-    @objc func fetchBanksAndCards() {
+    @objc func resetBanksAndCardsData() {
         resetFields()
         
         let bankObjects = realm.objects(BankModel.self)
@@ -68,12 +69,21 @@ class TransactionEntryViewModel: ObservableObject {
     
     func saveEntry() {
         // check for invalid input
-        let amountInt = Int(amount)
-        if amountInt == nil || amountInt! < 0 {
-//            showingError = true
-//            completion(false)
+        let amountVal = Double(amount)!
+        if amountVal == 0.0 || (bank.id.isEmpty && creditCard.id.isEmpty) {
+            showingError = true
             return
         }
+        
+        let transaction = Transaction(id: UUID().uuidString, date: date, amount: amountVal, currency: currency, isSpend: isSpend)
+        let newDBObj = TransactionModel(transaction: transaction)
+        try! realm.write {
+            realm.add(newDBObj)
+        }
+        
+        resetFields()
+        
+        NotificationCenter.default.post(name: Notification.Name("newTransactionEntryAdded"), object: nil)
     }
     
     func resetFields() {

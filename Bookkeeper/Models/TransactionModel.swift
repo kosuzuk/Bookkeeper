@@ -34,7 +34,7 @@ class TransactionModel: Object {
         self.id = transaction.id
         self.date = transaction.date
         self.amount = transaction.amount
-        self.currency = transaction.currency
+        self.currency = transaction.currency.rawValue
         self.spending = transaction.isSpend
         if let id = transaction.bankId {
             self.bankId = id

@@ -18,7 +18,15 @@ struct BanksView: View {
                         }
                     }
                     
-                    Text("Total: \(viewModel.savedBanks.reduce(0) { $0 + $1.monthlyDeposit })")
+                    Text("Total:")
+                    
+                    HStack(spacing: 20) {
+                        ForEach(viewModel.getAvailableCurrencies(), id: \.self) { currency in
+                            Text(currency.symbol)
+                            
+                            Text(String(viewModel.getTotalAmountForCurrency(currency: currency)))
+                        }
+                    }
                     
                     Text("Credit Cards:")
                     
@@ -29,15 +37,17 @@ struct BanksView: View {
                     }
                     
                     Spacer()
-
+                    
                     Button("Add New") {
                         viewModel.showingAddNewAlert = true
                     }
                     .foregroundColor(.red)
                     
-                    NavigationLink(destination: BankDetailEditView(availableCreditCards: viewModel.savedCreditCards, editCompletion: viewModel.resetList), isActive: $viewModel.showingBankDetailView) { EmptyView() }
-                    
-                    NavigationLink(destination: CreditCardDetailEditView(availableBanks: viewModel.savedBanks, editCompletion: viewModel.resetList), isActive: $viewModel.showingCreditCardDetailView) { EmptyView() }
+                    VStack {
+                        NavigationLink(destination: BankDetailEditView(availableCreditCards: viewModel.savedCreditCards, editCompletion: viewModel.resetList), isActive: $viewModel.showingBankDetailView) { EmptyView() }
+                        
+                        NavigationLink(destination: CreditCardDetailEditView(availableBanks: viewModel.savedBanks, editCompletion: viewModel.resetList), isActive: $viewModel.showingCreditCardDetailView) { EmptyView() }
+                    }
                 }
             }
         }

@@ -97,7 +97,7 @@ struct BankDetailEditView: View {
             }
         }
         .alert("Error", isPresented: $viewModel.showingError) {
-            Button("OK", role: .cancel) { }
+            Button("OK", role: .cancel) {}
         }
         .alert(isPresented: $viewModel.showingDeleteAlert) {
             Alert(
