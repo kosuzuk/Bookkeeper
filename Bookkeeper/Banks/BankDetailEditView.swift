@@ -3,9 +3,8 @@ import RealmSwift
 
 struct BankDetailEditView: View {
     @StateObject var viewModel = BankDetailEditViewModel()
-    var editingBank: Bank?
+    @Binding var editingBank: Bank?
     let availableCreditCards: [CreditCard]
-    let editCompletion: (() -> ())?
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -31,13 +30,8 @@ struct BankDetailEditView: View {
                     }
                 }
                 .onChange(of: viewModel.currency) { currency in
-                    if currency == .yen {
-                        viewModel.availableBalance = "0"
-                        viewModel.monthlyDeposit = "0"
-                    } else {
-                        viewModel.availableBalance = "0.00"
-                        viewModel.monthlyDeposit = "0.00"
-                    }
+                    viewModel.availableBalance = ""
+                    viewModel.monthlyDeposit = ""
                 }
                 
                 VStack {
@@ -90,7 +84,6 @@ struct BankDetailEditView: View {
             Button("Done") {
                 viewModel.saveChanges(editingBank) { successful in
                     if successful {
-                        editCompletion?()
                         dismiss()
                     }
                 }
@@ -105,7 +98,6 @@ struct BankDetailEditView: View {
                 primaryButton: .destructive(Text("Delete")) {
                     viewModel.deleteBank(editingBank) { successful in
                         if successful {
-                            editCompletion?()
                             dismiss()
                         }
                     }
@@ -117,8 +109,8 @@ struct BankDetailEditView: View {
             if let bank = editingBank {
                 viewModel.name = bank.name
                 viewModel.currency = bank.currency
-                viewModel.availableBalance = String(bank.availableBalance)
-                viewModel.monthlyDeposit = String(bank.monthlyDeposit)
+                viewModel.availableBalance = bank.availableBalance.toAmountString(currency: bank.currency)
+                viewModel.monthlyDeposit = bank.monthlyDeposit.toAmountString(currency: bank.currency)
                 
                 var cards: [CreditCard] = []
                 for id in bank.linkedCreditCardIds {
@@ -128,6 +120,13 @@ struct BankDetailEditView: View {
                 }
                 viewModel.linkedCreditCards = cards
             }
+        }
+        .onDisappear {
+            editingBank?.name = viewModel.name
+            editingBank?.currency = viewModel.currency
+            editingBank?.availableBalance = Double(viewModel.availableBalance)!
+            editingBank?.monthlyDeposit = Double(viewModel.monthlyDeposit)!
+            editingBank?.linkedCreditCardIds = viewModel.linkedCreditCards.map { $0.id }
         }
     }
 }

@@ -3,9 +3,8 @@ import RealmSwift
 
 struct CreditCardDetailEditView: View {
     @StateObject var viewModel = CreditCardDetailEditViewModel()
-    var editingCreditCard: CreditCard?
+    @Binding var editingCreditCard: CreditCard?
     let availableBanks: [Bank]
-    let editCompletion: (() -> ())?
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -57,7 +56,6 @@ struct CreditCardDetailEditView: View {
             Button("Done") {
                 viewModel.saveChanges(editingCreditCard) { successful in
                     if successful {
-                        editCompletion?()
                         dismiss()
                     }
                 }
@@ -72,7 +70,6 @@ struct CreditCardDetailEditView: View {
                 primaryButton: .destructive(Text("Delete")) {
                     viewModel.deleteCreditCard(editingCreditCard) { successful in
                         if successful {
-                            editCompletion?()
                             dismiss()
                         }
                     }
@@ -91,6 +88,11 @@ struct CreditCardDetailEditView: View {
             }
             
             viewModel.selectedBank = availableBanks.first
+        }
+        .onDisappear {
+            editingCreditCard?.name = viewModel.name
+            editingCreditCard?.currency = viewModel.currency
+            editingCreditCard?.linkedBankId = viewModel.selectedBank?.id
         }
     }
 }

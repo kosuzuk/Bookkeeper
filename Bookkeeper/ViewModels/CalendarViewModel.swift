@@ -22,8 +22,6 @@ class CalendarViewModel: ObservableObject {
         monthDisplayed = comps.month!
         yearDisplayed = comps.year!
         
-        transactionsData = Array(realm.objects(TransactionModel.self))
-        
         resetCalendarDays()
         
         NotificationCenter.default.addObserver(self, selector: #selector(resetCalendarDays), name: Notification.Name("newTransactionEntryAdded"), object: nil)
@@ -52,6 +50,9 @@ class CalendarViewModel: ObservableObject {
         for i in 0..<calendarDays.count {
             calendarDays[i].transactions = []
         }
+        
+        // Fetch data from local db
+        transactionsData = Array(realm.objects(TransactionModel.self))
         
         // Add transaction data to calendar day objects
         for obj in transactionsData {

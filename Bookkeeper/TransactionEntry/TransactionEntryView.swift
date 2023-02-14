@@ -39,7 +39,7 @@ struct TransactionEntryView: View {
                 
                 Text(viewModel.currency.symbol)
                 
-                TextField("0", text: $viewModel.amount)
+                TextField(viewModel.currency == .yen ? "0" : "0.00", text: $viewModel.amount)
                     .keyboardType(viewModel.currency == .yen ? .numberPad : .decimalPad)
                     .focused($isNumberPadActive)
                     .toolbar {

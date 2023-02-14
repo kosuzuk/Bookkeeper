@@ -54,9 +54,9 @@ class TransactionEntryViewModel: ObservableObject {
     func checkCurrencyChanged(newCurrency: Currency) {
         if currency != newCurrency {
             if newCurrency == .yen {
-                amount = "0"
+                amount = ""
             } else {
-                amount = "0.00"
+                amount = ""
             }
             currency = newCurrency
         }
@@ -75,10 +75,33 @@ class TransactionEntryViewModel: ObservableObject {
             return
         }
         
+        // save the transaction
         let transaction = Transaction(id: UUID().uuidString, date: date, amount: amountVal, currency: currency, isSpend: isSpend)
-        let newDBObj = TransactionModel(transaction: transaction)
+        let transactionDBObj = TransactionModel(transaction: transaction)
         try! realm.write {
-            realm.add(newDBObj)
+            realm.add(transactionDBObj)
+        }
+        
+        // edit the bank or card data in db
+        if isSpend {
+            if payWithBank {
+                let bankObj = realm.objects(BankModel.self).filter("id == %@", bank.id).first!
+                try! realm.write {
+                    bankObj.recentTransactionIds.append(transactionDBObj.id)
+                    bankObj.availableBalance -= amountVal
+                }
+            } else {
+                let cardObj = realm.objects(CreditCardModel.self).filter("id == %@", creditCard.id).first!
+                try! realm.write {
+                    cardObj.recentTransactionIds.append(transactionDBObj.id)
+                }
+            }
+        } else {
+            let bankObj = realm.objects(BankModel.self).filter("id == %@", bank.id).first!
+            try! realm.write {
+                bankObj.recentTransactionIds.append(transactionDBObj.id)
+                bankObj.availableBalance += amountVal
+            }
         }
         
         resetFields()
@@ -88,7 +111,7 @@ class TransactionEntryViewModel: ObservableObject {
     
     func resetFields() {
         notes = ""
-        amount = "0"
+        amount = ""
         payWithBank = true
         bank = Bank(id: "", name: "None available", currency: .yen, availableBalance: 0, monthlyDeposit: 0)
         creditCard = CreditCard(id: "", name: "None available", currency: .yen)

@@ -14,7 +14,7 @@ class BankDetailEditViewModel: ObservableObject {
     
     func saveChanges(_ editingBank: Bank?, completion: ((Bool) -> ())) {
         // check for invalid input
-        if name.isEmpty {
+        if name.isEmpty || monthlyDeposit.isEmpty || availableBalance.isEmpty {
             showingError = true
             completion(false)
             return

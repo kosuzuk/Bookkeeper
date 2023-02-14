@@ -10,8 +10,13 @@ class BanksViewModel: ObservableObject {
     @Published var showingCreditCardDetailView = false
     let realm = try! Realm()
     
-    func getTotalAmountForCurrency(currency: Currency) -> Double {
-        return savedBanks.reduce(0) { $0 + (currency == $1.currency ? $1.availableBalance : 0) }
+    init() {
+        NotificationCenter.default.addObserver(self, selector: #selector(resetList), name: Notification.Name("bankInfoChanged"), object: nil)
+    }
+    
+    func getTotalAmountStrForCurrency(currency: Currency) -> String {
+        let total = savedBanks.reduce(0) { $0 + (currency == $1.currency ? $1.availableBalance : 0) }
+        return total.toAmountString(currency: currency)
     }
     
     func getAvailableCurrencies() -> [Currency] {
@@ -25,7 +30,7 @@ class BanksViewModel: ObservableObject {
         return res
     }
     
-    func resetList() {
+    @objc func resetList() {
         let bankObjects = realm.objects(BankModel.self)
         var banks = [Bank]()
         for obj in bankObjects {

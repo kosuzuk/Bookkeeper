@@ -1,9 +1,8 @@
 import SwiftUI
 
 struct CreditCardDetailView: View {
-    let creditCard: CreditCard?
+    @State var creditCard: CreditCard?
     let availableBanks: [Bank]
-    let editCompletion: (() -> ())?
     
     func bankIdToName(_ id: String) -> String {
         let ind = availableBanks.firstIndex(where: { $0.id == id })!
@@ -15,7 +14,7 @@ struct CreditCardDetailView: View {
             VStack(spacing: 40) {
                 Spacer().frame(width: 40)
 
-                NavigationLink(destination: CreditCardDetailEditView(editingCreditCard: creditCard, availableBanks: availableBanks, editCompletion: editCompletion)) {
+                NavigationLink(destination: CreditCardDetailEditView(editingCreditCard: $creditCard, availableBanks: availableBanks)) {
                     Text("Edit")
                 }
                 .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))

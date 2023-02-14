@@ -61,5 +61,31 @@ struct RootView: View {
                 .tag(4)
         }
         .environment(\.colorScheme, .light)
+        .onAppear {
+//            let realm = try! Realm()
+//            try! realm.write {
+//                realm.deleteAll()
+//            }
+        }
+    }
+}
+
+extension Double {
+    func toAmountString(currency: Currency) -> String {
+        var res = ""
+        
+        if currency == .yen {
+            res = String(Int(self))
+        } else {
+            let str = String(self)
+            let dotPos = str.distance(from: str.startIndex, to: str.firstIndex(of: ".")!)
+            if dotPos == str.count - 2 {
+                res = str + "0"
+            } else {
+                res = String(str.prefix(dotPos + 3))
+            }
+        }
+        
+        return res
     }
 }

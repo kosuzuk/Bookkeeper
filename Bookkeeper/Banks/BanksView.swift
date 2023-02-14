@@ -13,25 +13,27 @@ struct BanksView: View {
                     Text("Banks:")
                     
                     ForEach(viewModel.savedBanks, id: \.id) { bank in
-                        NavigationLink(destination: BankDetailView(bank: bank, availableCreditCards: viewModel.savedCreditCards, editCompletion: viewModel.resetList)) {
+                        NavigationLink(destination: BankDetailView(bank: bank, availableCreditCards: viewModel.savedCreditCards)) {
                             Text(bank.name)
                         }
                     }
                     
                     Text("Total:")
                     
-                    HStack(spacing: 20) {
+                    HStack(spacing: 30) {
                         ForEach(viewModel.getAvailableCurrencies(), id: \.self) { currency in
-                            Text(currency.symbol)
-                            
-                            Text(String(viewModel.getTotalAmountForCurrency(currency: currency)))
+                            HStack(spacing: 3) {
+                                Text(currency.symbol)
+                                
+                                Text(viewModel.getTotalAmountStrForCurrency(currency: currency))
+                            }
                         }
                     }
                     
                     Text("Credit Cards:")
                     
                     ForEach(viewModel.savedCreditCards, id: \.id) { card in
-                        NavigationLink(destination: CreditCardDetailView(creditCard: card, availableBanks: viewModel.savedBanks, editCompletion: viewModel.resetList)) {
+                        NavigationLink(destination: CreditCardDetailView(creditCard: card, availableBanks: viewModel.savedBanks)) {
                             Text(card.name)
                         }
                     }
@@ -44,19 +46,14 @@ struct BanksView: View {
                     .foregroundColor(.red)
                     
                     VStack {
-                        NavigationLink(destination: BankDetailEditView(availableCreditCards: viewModel.savedCreditCards, editCompletion: viewModel.resetList), isActive: $viewModel.showingBankDetailView) { EmptyView() }
+                        NavigationLink(destination: BankDetailEditView(editingBank: Binding.constant(nil), availableCreditCards: viewModel.savedCreditCards), isActive: $viewModel.showingBankDetailView) { EmptyView() }
                         
-                        NavigationLink(destination: CreditCardDetailEditView(availableBanks: viewModel.savedBanks, editCompletion: viewModel.resetList), isActive: $viewModel.showingCreditCardDetailView) { EmptyView() }
+                        NavigationLink(destination: CreditCardDetailEditView(editingCreditCard: Binding.constant(nil), availableBanks: viewModel.savedBanks), isActive: $viewModel.showingCreditCardDetailView) { EmptyView() }
                     }
                 }
             }
         }
         .onAppear {
-//            let realm = try! Realm()
-//            try! realm.write {
-//                realm.deleteAll()
-//            }
-
             viewModel.resetList()
         }
         .alert(isPresented: $viewModel.showingAddNewAlert) {

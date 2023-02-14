@@ -49,6 +49,8 @@ class CreditCardDetailEditViewModel: ObservableObject {
         
         // exit the view
         completion(true)
+        
+        NotificationCenter.default.post(name: Notification.Name("bankInfoChanged"), object: nil)
     }
     
     func deleteCreditCard(_ editingCreditCard: CreditCard?, completion: ((Bool) -> ())) {
