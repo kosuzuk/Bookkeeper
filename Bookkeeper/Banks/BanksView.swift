@@ -52,9 +52,9 @@ struct BanksView: View {
                     }
                 }
             }
-        }
-        .onAppear {
-            viewModel.resetList()
+            .onAppear {
+                viewModel.resetList()
+            }
         }
         .alert(isPresented: $viewModel.showingAddNewAlert) {
             Alert(

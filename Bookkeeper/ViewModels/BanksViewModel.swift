@@ -30,7 +30,7 @@ class BanksViewModel: ObservableObject {
         return res
     }
     
-    @objc func resetList() {
+    @objc func resetList() {7
         let bankObjects = realm.objects(BankModel.self)
         var banks = [Bank]()
         for obj in bankObjects {

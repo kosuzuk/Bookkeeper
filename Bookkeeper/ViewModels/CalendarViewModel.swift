@@ -6,7 +6,7 @@ class CalendarViewModel: ObservableObject {
     @Published var calendarDays: [CalendarDay] = []
     @Published var monthDisplayed = 0
     @Published var yearDisplayed = 0
-    @Published var selectedEntry: Transaction?
+    @Published var selectedDate: Int?
     var transactionsData: [TransactionModel] = []
     var firstWeekday = 0
     let columns = (0..<7).map({ _ in GridItem(.fixed((Device.width - 40) / 7)) })

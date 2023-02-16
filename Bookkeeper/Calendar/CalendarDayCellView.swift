@@ -3,8 +3,8 @@ import SwiftUI
 struct CalendarDayCellView: View {
     @ObservedObject var viewModel: CalendarDayCellViewModel
     
-    init(calendarDay: CalendarDay) {
-        viewModel = CalendarDayCellViewModel(calendarDay: calendarDay)
+    init(calendarDay: CalendarDay, onSelectTransaction: @escaping ((Int) -> ())) {
+        viewModel = CalendarDayCellViewModel(calendarDay: calendarDay, onSelectTransaction: onSelectTransaction)
     }
     
     func calculateTransactionTotal() {
@@ -36,7 +36,9 @@ struct CalendarDayCellView: View {
     var body: some View {
         Button {
             if viewModel.calendarDay.day > 0 {
-                print("calendar day tapped", viewModel.calendarDay.transactions)
+                 if !viewModel.calendarDay.transactions.isEmpty {
+                     viewModel.onSelectTransaction(viewModel.calendarDay.day)
+                }
             }
         } label: {
             if viewModel.calendarDay.day > 0 {

@@ -24,7 +24,7 @@ struct CalendarView: View {
             LazyVGrid(columns: viewModel.columns, spacing: 10) {
                 ForEach(viewModel.calendarDays, id: \.id) { calendarDay in
                     ZStack {
-                        CalendarDayCellView(calendarDay: calendarDay)
+                        CalendarDayCellView(calendarDay: calendarDay, onSelectTransaction: { date in viewModel.selectedDate = date })
                         
                         if calendarDay.day + viewModel.firstWeekday < 9 {
                             Text(viewModel.weekdays[calendarDay.day + viewModel.firstWeekday - 2])
@@ -37,29 +37,8 @@ struct CalendarView: View {
             
             Spacer()
             
-            if let entry = viewModel.selectedEntry {
-                VStack {
-                    Text("\(entry.currency.symbol)\(entry.isSpend ? "-" : "+")\(entry.amount)")
-                        .foregroundColor(entry.isSpend ? .red : .green)
-                    
-                    //bank/card info
-                    
-                    Text("\(entry.title)")
-                    
-                    Text("\(entry.details)")
-                    
-                    if let category = entry.expenseCategory {
-                        Text("\(category.rawValue)")
-                    }
-                    
-                    if let category = entry.incomeCategory {
-                        Text("\(category.rawValue)")
-                    }
-                }
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(.gray, lineWidth: 1)
-                )
+            if let date = viewModel.selectedDate {
+                TransactionsListView(transactions: viewModel.calendarDays[viewModel.firstWeekday + date - 2].transactions)
             }
         }
     }

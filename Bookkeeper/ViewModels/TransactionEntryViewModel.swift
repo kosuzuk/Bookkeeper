@@ -83,24 +83,17 @@ class TransactionEntryViewModel: ObservableObject {
         }
         
         // edit the bank or card data in db
-        if isSpend {
-            if payWithBank {
-                let bankObj = realm.objects(BankModel.self).filter("id == %@", bank.id).first!
-                try! realm.write {
-                    bankObj.recentTransactionIds.append(transactionDBObj.id)
-                    bankObj.availableBalance -= amountVal
-                }
-            } else {
-                let cardObj = realm.objects(CreditCardModel.self).filter("id == %@", creditCard.id).first!
-                try! realm.write {
-                    cardObj.recentTransactionIds.append(transactionDBObj.id)
-                }
-            }
-        } else {
+        if payWithBank {
             let bankObj = realm.objects(BankModel.self).filter("id == %@", bank.id).first!
             try! realm.write {
                 bankObj.recentTransactionIds.append(transactionDBObj.id)
-                bankObj.availableBalance += amountVal
+                var val = isSpend ? -amountVal : amountVal
+                bankObj.availableBalance += val
+            }
+        } else {
+            let cardObj = realm.objects(CreditCardModel.self).filter("id == %@", creditCard.id).first!
+            try! realm.write {
+                cardObj.recentTransactionIds.append(transactionDBObj.id)
             }
         }
         

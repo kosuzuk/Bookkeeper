@@ -84,6 +84,12 @@ struct BankDetailEditView: View {
             Button("Done") {
                 viewModel.saveChanges(editingBank) { successful in
                     if successful {
+                        editingBank?.name = viewModel.name
+                        editingBank?.currency = viewModel.currency
+                        editingBank?.availableBalance = Double(viewModel.availableBalance)!
+                        editingBank?.monthlyDeposit = Double(viewModel.monthlyDeposit)!
+                        editingBank?.linkedCreditCardIds = viewModel.linkedCreditCards.map { $0.id }
+                        
                         dismiss()
                     }
                 }
@@ -120,13 +126,6 @@ struct BankDetailEditView: View {
                 }
                 viewModel.linkedCreditCards = cards
             }
-        }
-        .onDisappear {
-            editingBank?.name = viewModel.name
-            editingBank?.currency = viewModel.currency
-            editingBank?.availableBalance = Double(viewModel.availableBalance)!
-            editingBank?.monthlyDeposit = Double(viewModel.monthlyDeposit)!
-            editingBank?.linkedCreditCardIds = viewModel.linkedCreditCards.map { $0.id }
         }
     }
 }
